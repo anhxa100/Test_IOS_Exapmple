@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class AccountAPI {
     static func login(with input: Account.DataAfterValiDate, result: @escaping ((Account)->())) {
@@ -17,6 +18,8 @@ class AccountAPI {
 //        queryItems.append(URLQueryItem(name: "USER_CHILD", value: input.children))
 //        queryItems.append(URLQueryItem(name: "PASSWORD", value: input.pass))
         let components = URLComponents(scheme: "https", host: BASE_DOMAIN, path: "/login_child", queryItems: [])
+        //login_child không nên fix cứng
+        
         guard let url = components.url else {
             result(defautError)
             return
@@ -31,40 +34,63 @@ class AccountAPI {
         ]
         urlRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
         
-        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            guard error == nil, let aData = data else {
-                
+        print("USER VA PASS \(parameters)")
+        
+        //Dùng thư viện alamofire
+        Alamofire.request(urlRequest).responseJSON{response in
+            guard response.result.error == nil else {
                 result(defautError)
-               
-
                 return
             }
+
+            guard let aData = response.result.value as? [String: Any]  else {
+                print("didn't get todo object as JSON from API")
+                print("Error: \(response.result.error)")
+                return
+            }
+            print("TOKEN O DAY \(aData)")
+            result(Account(json: aData))
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                
                 result(defautError)
-               
-
                 return
             }
-            
-            do {
-                if let json = try JSONSerialization.jsonObject(with: aData, options: .mutableContainers) as? JSON {
-                    
-                    result(Account(json: json))
-                   
-                    
-                } else {
-                    
-                    result(defautError)
-                   
-                }
-            } catch {
-                
-                result(defautError)
-               
 
-            }
-        }.resume()
+        }
+//          Dùng URLSession cũ
+//        URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+//            guard error == nil, let aData = data else {
+//
+//                result(defautError)
+//
+//
+//                return
+//            }
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+//
+//                result(defautError)
+//
+//
+//                return
+//            }
+//
+//            do {
+//                if let json = try JSONSerialization.jsonObject(with: aData, options: .mutableContainers) as? JSON {
+//
+//                    result(Account(json: json))
+//
+//
+//                } else {
+//
+//                    result(defautError)
+//
+//                }
+//            } catch {
+//
+//                result(defautError)
+//
+//
+//            }
+//        }.resume()
     }
 }
 extension URLComponents {

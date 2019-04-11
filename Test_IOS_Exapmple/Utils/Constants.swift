@@ -23,4 +23,8 @@ class UserDefaultKeys {
     class var userChildrenKey: String {
         return "user_children"
     }
+    
+    class var isLogin: String {
+        return "isLogin"
+    }
 }

@@ -28,6 +28,7 @@ class Account {
         let _message = (json["RESULT"] as? String) ??  "Vui lòng thử lại"
         let _token = json["TOKEN"] as? String
         self.init(metaCode: _metaCode, message: _message, token: _token)
+//        print(token)
     }
 }
 

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LoginController: UIViewController {
     
     
@@ -28,6 +29,8 @@ class LoginController: UIViewController {
     }
     
     @IBAction func onClickLoginButton(_ sender: Any) {
+        
+        
         let inputValidate = Account.DataBeforeValiDate(mother: mamaTF.text, children: childTF.text, pass: passTF.text)
         Account.valiDateLogin(input: inputValidate, success: { [weak self] outPut in
             // Gọi api login and show loading
@@ -36,11 +39,17 @@ class LoginController: UIViewController {
                     // Login thanh công chuyển sang man tiep theo
                     DispatchQueue.main.async {
                         if let token = acc.token {
+                            
+                            UserDefaults.standard.set(true, forKey: UserDefaultKeys.isLogin)
+                            
                             USER_DEFAULTS.set(token, forKey: UserDefaultKeys.tokenKey)
                             USER_DEFAULTS.set(outPut.mother, forKey: UserDefaultKeys.userMotherKey)
                             USER_DEFAULTS.set(outPut.children, forKey: UserDefaultKeys.userChildrenKey)
-                            let homevc = HomeController.instance
-                            self?.present(homevc, animated: true, completion: nil)
+                            
+//                            let homevc = HomeController.instance
+//                            self?.present(homevc, animated: true, completion: nil)
+                            Switcher.updateRootVC()
+                            
                         } else {
                             self?.errorAlert(message: "Vui lòng thử lại")
                         }
@@ -63,6 +72,8 @@ class LoginController: UIViewController {
             self.present(alertVC, animated: true, completion: nil)
         }
     }
+    
+    
     /*
     // MARK: - Navigation
 

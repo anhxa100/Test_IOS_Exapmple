@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,14 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+      
+        //Lưu token bằng cách sử dụng UserDefault
         if USER_DEFAULTS.object(forKey: UserDefaultKeys.tokenKey) != nil,
             USER_DEFAULTS.object(forKey: UserDefaultKeys.userChildrenKey) != nil,
             USER_DEFAULTS.object(forKey: UserDefaultKeys.userMotherKey) != nil {
             /// User đa login set lai entry point vao man home
         }
+        Switcher.updateRootVC()
         
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

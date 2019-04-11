@@ -10,19 +10,28 @@ import Foundation
 
 class Excercise {
     let levelName: String
-    let subjectID: Int
+    let subjectName: String
     let weekName: String
     let requirement: String
     
     init?(json: JSON) {
         guard let _levelName = json["LEVEL_NAME"] as? String else {return nil}
-        guard let _subjectID = json["SUBJECT_ID"] as? Int else {return nil}
+        guard let _subjectName = json["SUBJECT_NAME"] as? String else {return nil}
         guard let _weekName = json["WEEK_NAME"] as? String else {return nil}
         guard let _requirement = json["REQUIREMENT"] as? String else {return nil}
         
         levelName = _levelName
-        subjectID = _subjectID
+        subjectName = _subjectName
         weekName = _weekName
         requirement = _requirement
+        
+//        print(levelName)
+//        print(subjectID)
+//        print(weekName)
+//        print(requirement)
+        
+        print(json)
+        
+        
     }
 }
