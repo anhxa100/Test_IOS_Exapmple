@@ -35,6 +35,7 @@ class ExcerciseAPI {
             "USER_CHILD": userChildren
         ]
         
+        print(parameters)
         urlRequest.httpBody = parameters.percentEscaped().data(using: .utf8)
         
         // Sử dụng thư viện Alamofire

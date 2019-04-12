@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Lưu token bằng cách sử dụng UserDefault
         if USER_DEFAULTS.object(forKey: UserDefaultKeys.tokenKey) != nil,
             USER_DEFAULTS.object(forKey: UserDefaultKeys.userChildrenKey) != nil,
-            USER_DEFAULTS.object(forKey: UserDefaultKeys.userMotherKey) != nil {
+            USER_DEFAULTS.object(forKey: UserDefaultKeys.userMotherKey) != nil
+        {
             /// User đa login set lai entry point vao man home
         }
         Switcher.updateRootVC()

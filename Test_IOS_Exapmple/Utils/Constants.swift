@@ -27,4 +27,5 @@ class UserDefaultKeys {
     class var isLogin: String {
         return "isLogin"
     }
+    
 }

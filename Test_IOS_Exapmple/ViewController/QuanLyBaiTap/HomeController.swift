@@ -75,14 +75,33 @@ class HomeController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-        cell.levelNameLabel.text = excercise[indexPath.row].levelName
-        cell.subjectIDLabel.text = String(excercise[indexPath.row].subjectName)
-        cell.weekNameLabel.text = excercise[indexPath.row].weekName
-        cell.requirementLabel.text = excercise[indexPath.row].requirement
+        let excercise1 = excercise[indexPath.row]
+        cell.levelNameLabel.text = excercise1.levelName
+        cell.subjectIDLabel.text = String(excercise1.subjectName)
+        cell.weekNameLabel.text = excercise1.weekName
+        cell.requirementLabel.text = excercise1.requirement
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+            let excercise1 = excercise[indexPath.row]
+        IDExcerciseAPI.getDetailExcerciseWithId(idExc: String(excercise1.idExcercise) , success: { [weak self] exc in
+            DispatchQueue.main.async {
+                self?.excercise = exc
+
+                /// End loading
+                
+            }
+            }, failure: { [weak self] mess in
+                DispatchQueue.main.async {
+                    /// End loading
+                    self?.errorAlert(message: mess)
+                    
+                }
+        })
+    }
     
     
 }

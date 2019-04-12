@@ -20,6 +20,7 @@
 		569013CC22565830003DE0D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569013CB22565830003DE0D4 /* Constants.swift */; };
 		569013CE225666C9003DE0D4 /* Excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569013CD225666C9003DE0D4 /* Excercise.swift */; };
 		569013D02256697C003DE0D4 /* ExcerciseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 569013CF2256697C003DE0D4 /* ExcerciseAPI.swift */; };
+		56CF477F225F342100330C4A /* IDExcerciseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CF477E225F342100330C4A /* IDExcerciseAPI.swift */; };
 		56D15E51225EE4AA00FCCC20 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D15E50225EE4AA00FCCC20 /* Switcher.swift */; };
 		56D15E53225EFDB400FCCC20 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D15E52225EFDB400FCCC20 /* ProfileVC.swift */; };
 		56F20612225DCEA000015BA5 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F20611225DCEA000015BA5 /* CustomView.swift */; };
@@ -43,6 +44,7 @@
 		569013CB22565830003DE0D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		569013CD225666C9003DE0D4 /* Excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Excercise.swift; sourceTree = "<group>"; };
 		569013CF2256697C003DE0D4 /* ExcerciseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseAPI.swift; sourceTree = "<group>"; };
+		56CF477E225F342100330C4A /* IDExcerciseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDExcerciseAPI.swift; sourceTree = "<group>"; };
 		56D15E50225EE4AA00FCCC20 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		56D15E52225EFDB400FCCC20 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		56F20611225DCEA000015BA5 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				569013C1225642F2003DE0D4 /* Account.swift */,
 				569013CD225666C9003DE0D4 /* Excercise.swift */,
 				569013CF2256697C003DE0D4 /* ExcerciseAPI.swift */,
+				56CF477E225F342100330C4A /* IDExcerciseAPI.swift */,
 				569013C722565694003DE0D4 /* AccountAPI.swift */,
 				569013C52256526B003DE0D4 /* MetaCode.swift */,
 				569013CB22565830003DE0D4 /* Constants.swift */,
@@ -292,6 +295,7 @@
 				56D15E53225EFDB400FCCC20 /* ProfileVC.swift in Sources */,
 				569013B0225639DD003DE0D4 /* AppDelegate.swift in Sources */,
 				569013CE225666C9003DE0D4 /* Excercise.swift in Sources */,
+				56CF477F225F342100330C4A /* IDExcerciseAPI.swift in Sources */,
 				569013C2225642F2003DE0D4 /* Account.swift in Sources */,
 				569013CC22565830003DE0D4 /* Constants.swift in Sources */,
 			);

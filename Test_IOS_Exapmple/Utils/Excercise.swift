@@ -13,17 +13,21 @@ class Excercise {
     let subjectName: String
     let weekName: String
     let requirement: String
+    let idExcercise: Int
     
     init?(json: JSON) {
         guard let _levelName = json["LEVEL_NAME"] as? String else {return nil}
         guard let _subjectName = json["SUBJECT_NAME"] as? String else {return nil}
         guard let _weekName = json["WEEK_NAME"] as? String else {return nil}
         guard let _requirement = json["REQUIREMENT"] as? String else {return nil}
+        guard let _idExcercise = json["ID"] as? Int else {return nil}
         
         levelName = _levelName
         subjectName = _subjectName
         weekName = _weekName
         requirement = _requirement
+        idExcercise = _idExcercise
+        
         
 //        print(levelName)
 //        print(subjectID)
@@ -32,6 +36,6 @@ class Excercise {
         
         print(json)
         
-        
+        // Làm lại model
     }
 }

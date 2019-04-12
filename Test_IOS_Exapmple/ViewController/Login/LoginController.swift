@@ -42,12 +42,12 @@ class LoginController: UIViewController {
                             
                             UserDefaults.standard.set(true, forKey: UserDefaultKeys.isLogin)
                             
+                           
                             USER_DEFAULTS.set(token, forKey: UserDefaultKeys.tokenKey)
                             USER_DEFAULTS.set(outPut.mother, forKey: UserDefaultKeys.userMotherKey)
                             USER_DEFAULTS.set(outPut.children, forKey: UserDefaultKeys.userChildrenKey)
                             
-//                            let homevc = HomeController.instance
-//                            self?.present(homevc, animated: true, completion: nil)
+
                             Switcher.updateRootVC()
                             
                         } else {
